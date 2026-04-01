@@ -7,7 +7,7 @@ export default function UploadProof() {
   const [file, setFile] = useState(null);
 
   const upload = async () => {
-    if (!file) return alert("Select file");
+    if (!file) return toast.info("Select file");
 
     const formData = new FormData();
     formData.append("drawId", drawId);

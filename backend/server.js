@@ -1,13 +1,11 @@
 import dotenv from "dotenv";
 dotenv.config(); // load env variables immediately
-console.log("EMAIL:", process.env.EMAIL);
-console.log("PASS:", process.env.EMAIL_PASS);
 
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import compression from "compression";
-
+import path from "path";
 // Import routes after dotenv.config()
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -22,8 +20,6 @@ import dashboardRoutes from "./routes/dashboardRoutes.js";
 import historyRoutes from "./routes/historyRoutes.js";
 import charityRoutes from "./routes/charityRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
-
-// Import Razorpay and cron after dotenv.config()
 import razorpay from "./utils/razorpay.js";
 import "./utils/cron.js";
 
@@ -34,7 +30,10 @@ const app = express();
 
 // Middleware
 securityMiddleware(app);
-app.use(cors());
+app.use(cors({
+  origin: "*", 
+  credentials: true,               // allow cookies/auth headers
+}));
 app.use(express.json());
 app.use(compression());
 
@@ -51,8 +50,11 @@ app.use("/api/charity", charityRoutes);
 app.use("/api/admin/stats", adminAnalytics);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/history", historyRoutes);
-app.use("/api/payment", paymentRoutes);
-
+app.use("/api/payment", paymentRoutes);    
+app.use("/api/admin/winners", winnerRoutes);   // winners
+// app.use("/api/charities", charityRoutes); // charity
+app.use("/api/analytics", adminAnalytics);
+app.use("/uploads", express.static(path.join(process.cwd(), "public/uploads")));
 // Test route
 app.get("/", (req, res) => res.send("API Running..."));
 

@@ -22,12 +22,12 @@ const check = async () => {
 };
 
   return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">Check Result</h1>
+    <div className="m-50">
+      <h1 className="text-xl font-bold mb-10">Check Result</h1>
 
       <input
         placeholder="Enter Draw ID"
-        className="border p-2 mr-2 transition-all duration-300"
+        className="border p-2 mr-2 mb-4 transition-all duration-300"
         onChange={(e)=>setDrawId(e.target.value)}
       />
 

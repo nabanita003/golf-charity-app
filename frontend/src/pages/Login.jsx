@@ -14,12 +14,16 @@ export default function Login({ switchToRegister }) {
 
       localStorage.setItem("token", res.data.token);
 
-      // ✅ Success popup
+      //  Success popup
       setPopup({ type: "success", message: "Login Successful 🚀" });
 
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 1500);
+setTimeout(() => {
+  if (res.data.user.role === "admin") {
+    window.location.href = "/admin";
+  } else {
+    window.location.href = "/dashboard";
+  }
+}, 1500);
 
     } catch (err) {
       setPopup({
@@ -30,9 +34,10 @@ export default function Login({ switchToRegister }) {
   };
 
   return (
-    // <div className="min-h-screen flex items-center justify-center bg-gray-100">
-    <div className="w-full">
-      <form onSubmit={handleLogin} className="space-y-3">
+    
+    <div className="w-full bg-gray-300 p-4 rounded-2xl flex justify-center">
+    
+      <form onSubmit={handleLogin} className="space-y-2 w-full max-w-xs mx-auto">
 
       <h2 className="text-2xl font-bold text-center text-black">Welcome Back</h2>
 

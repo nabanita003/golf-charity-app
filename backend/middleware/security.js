@@ -4,7 +4,11 @@ import rateLimit from "express-rate-limit";
 export const securityMiddleware = (app) => {
 
   // Secure headers
-  app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  })
+);
 
   // Rate limiting (prevent brute force)
   const limiter = rateLimit({

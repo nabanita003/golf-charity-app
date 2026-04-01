@@ -23,21 +23,7 @@ export default function Navbar() {
         </h1>
 
         {/* Desktop Menu */}
-        {/* <div className="hidden md:flex gap-6 text-lg font-medium">
-          <NavLink to="/dashboard" className={navStyle}>Dashboard</NavLink>
-          <NavLink to="/subscribe" className={navStyle}>Subscribe</NavLink>
-          <NavLink to="/check" className={navStyle}>Check Result</NavLink>
-          <NavLink to="/charity" className={navStyle}>Charity</NavLink>
-          <NavLink to="/history" className={navStyle}>History</NavLink>
-          <NavLink to="/proof" className={navStyle}>Upload Proof</NavLink>
-
-          <button 
-            onClick={logout} 
-            className="bg-red-500 px-3 py-1 rounded hover:bg-red-600 transition-colors"
-          >
-            Logout
-          </button>
-        </div> */}
+      
             <div className="hidden md:flex gap-8 text-lg font-medium items-center">
 
       <NavLink to="/dashboard" className={navStyle}>Dashboard</NavLink>

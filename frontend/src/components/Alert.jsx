@@ -1,12 +1,4 @@
-// export default function Alert({ message, type }) {
-//   return (
-//     <div className={`p-3 rounded mb-3 ${
-//       type === "success" ? "bg-green-200" : "bg-red-200"
-//     }`}>
-//       {message}
-//     </div>
-//   );
-// }
+
 
 export default function Alert({ message, type, onClose }) {
   return (
@@ -24,7 +16,7 @@ export default function Alert({ message, type, onClose }) {
 
         <button
           onClick={onClose}
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all duration-300"
+          className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition-all duration-300"
         >
           OK
         </button>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import API from "../api";
-import AuthModal from "../components/AuthModal";
 import Alert from "../components/Alert";
+
 
 export default function Register({switchToLogin}) {
   const [form, setForm] = useState({
@@ -32,28 +32,27 @@ const submit = async (e) => {
 };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-    {/* // <div className="w-full"> */}
-       <form className="space-y-3">
+<div className="w-full bg-gray-300 p-4 rounded-2xl">
+      <form className="space-y-4 w-full max-w-md bg-white p-6 rounded-xl shadow-lg transform transition-all duration-300">
 
       <h2 className="text-2xl font-bold text-center text-black">Create Account!</h2>
 
       <input
         placeholder="Name"
-        className="border p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-600 transition-all duration-300"
+        className="border p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-600 transition-all duration-300"
         onChange={e=>setForm({...form,name:e.target.value})}
       />
 
       <input
         placeholder="Email"
-        className="border p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-600 transition-all duration-300"
+        className="border p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-600 transition-all duration-300"
         onChange={e=>setForm({...form,email:e.target.value})}
       />
 
       <input
         type="password"
         placeholder="Password"
-        className="border p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-600 transition-all duration-300"
+        className="border p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-600 transition-all duration-300"
         onChange={e=>setForm({...form,password:e.target.value})}
       />
 

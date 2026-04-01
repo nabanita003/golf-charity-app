@@ -21,7 +21,7 @@ export default function Subscribe() {
     const loaded = await loadRazorpay();
 
     if (!loaded) {
-      alert("Razorpay failed to load");
+      toast.error("Razorpay failed to load");
       return;
     }
 

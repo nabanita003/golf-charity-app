@@ -60,7 +60,7 @@ export default function Home() {
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="flex justify-center md:justify-end animate-fadeIn delay-800">
+        <div className="flex justify-center md:justify-end animate-fadeIn delay-800 w-84">
           <img
             src={heroImg}
             alt="Golf"
