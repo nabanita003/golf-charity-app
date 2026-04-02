@@ -31,7 +31,7 @@ const app = express();
 // Middleware
 securityMiddleware(app);
 app.use(cors({
-  origin: "https://golf-charity-app-beta.vercel.app/", 
+  origin: "https://golf-charity-app-beta.vercel.app", 
   credentials: true,               // allow cookies/auth headers
 }));
 app.use(express.json());
